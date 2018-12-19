@@ -8,4 +8,9 @@ class UsersController < ApplicationController
     session[:id] = user.id
     redirect '/'
   end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
+  end
 end

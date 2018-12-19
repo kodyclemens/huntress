@@ -12,4 +12,8 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :welcome
   end
+
+  def logged_in?
+    session[:id] != nil
+  end
 end
