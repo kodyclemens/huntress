@@ -11,6 +11,7 @@ gem 'thin'
 gem 'bcrypt'
 gem 'rails_12factor'
 gem 'foreman'
+gem 'dotenv'
 
 group :development do
   gem 'sqlite3'
