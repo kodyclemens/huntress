@@ -12,6 +12,7 @@ gem 'bcrypt'
 gem 'rails_12factor'
 gem 'foreman'
 gem 'dotenv'
+gem 'sinatra-flash'
 
 group :development do
   gem 'sqlite3'
