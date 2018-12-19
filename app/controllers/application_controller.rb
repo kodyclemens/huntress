@@ -9,11 +9,12 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV.fetch('SESSION_SECRET')
   end
 
-  get '/' do
-    erb :welcome
-  end
-
   def logged_in?
     session[:id] != nil
+  end
+
+  get '/' do
+    @user_logged_in = logged_in?
+    erb :welcome
   end
 end
