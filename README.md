@@ -34,7 +34,8 @@ You will need to have the Bundler gem and Heroku application installed. [Setup B
 Recommend viewing [Heroku Getting Started guide](https://devcenter.heroku.com/articles/getting-started-with-ruby) if you have never used it.
 
 ### Setup a new Git repository for the app.
-1. Delete the .git folder after forking
+1. Fork this repo. Ensure you are on the heroku_template branch `git checkout heroku_template`
+1. Delete the .git folder `rm -rf .git`
 2. Run `git init` to set fresh Git files for the application
 3. Create repository on Github, connect and push to master as you normally would
 
