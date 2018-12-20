@@ -11,7 +11,7 @@
         <% end %>
         <p>Notes: <%= job.note %></p>
         <form method="POST" action="/jobs/<%=job.slug%>/delete">
-          <input type="submit" value="delete">
+          <input type="submit" value="delete" class="btn btn-warning">
           <input id="hidden" type="hidden" name="_method" value="delete">
         </form>
         <hr><br>
