@@ -27,6 +27,7 @@ You will need to have the Bundler gem and Heroku application installed. [Setup B
 
 * `gem install bundler`
 * `brew install heroku/brew/heroku`
+* `heroku login` - This authentication is required for both the `heroku` and `git` commands to work correctly.
 
 Recommend viewing [Heroku Getting Started guide](https://devcenter.heroku.com/articles/getting-started-with-ruby) if you have never used it.
 
