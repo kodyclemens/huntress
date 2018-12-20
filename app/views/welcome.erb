@@ -3,21 +3,6 @@
 
   <div class="col-md-8 col-md-offset-2">
     <h2>Huntress Index Page</h2>
-      <div class ="nav">
-        <a href='/'>Home Page</a>
-        <% if @user_logged_in == true %>
-          <a href='/jobs'>Dashboard</a>
-          <a href='/logout'>Log Out</a>
-        <% else %>
-          <a href='/login'>Log In</a>
-          <a href='/signup'>Register an Account</a>
-        <% end %>
-      </div>
-
-    <div class="content">
-      <p></p>
-    </div>
-
     <div class="sidebar">
       <h3>Environment</h3>
       <ul>
@@ -27,6 +12,5 @@
         <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
       </ul>
     </div>
-
   </div>
 </div>

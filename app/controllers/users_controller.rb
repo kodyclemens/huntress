@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   get '/login' do
     if logged_in?
       @logged_in = true
+      flash[:blah]
       redirect '/'
     else
       @logged_in = false
