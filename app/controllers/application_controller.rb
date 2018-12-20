@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    @user_logged_in = logged_in?
+    @logged_in = logged_in?
     erb :welcome
   end
 end

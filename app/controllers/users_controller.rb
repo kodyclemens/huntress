@@ -1,17 +1,21 @@
 class UsersController < ApplicationController
   get '/signup' do
+    @logged_in = false
     erb :'/users/signup'
   end
   
   get '/logout' do
     session.clear
+    @logged_in = false
     redirect '/'
   end
 
   get '/login' do
     if logged_in?
+      @logged_in = true
       redirect '/'
     else
+      @logged_in = false
       erb :'/users/login'
     end
   end
