@@ -1,0 +1,3 @@
+class Scraper
+  #rename
+end

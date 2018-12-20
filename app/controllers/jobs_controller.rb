@@ -3,7 +3,6 @@ class JobsController < ApplicationController
     if logged_in?
       user = current_user
       @jobs = user.jobs.all
-      
       erb :'/jobs/dashboard'
     else
       redirect '/'
@@ -30,6 +29,7 @@ class JobsController < ApplicationController
   end
 
   post '/jobs/new' do
+    binding.pry
     user = current_user
     params.each do |field|
       redirect '/jobs/new' if field.empty?
