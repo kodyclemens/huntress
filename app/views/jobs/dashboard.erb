@@ -1,13 +1,5 @@
 <div class="container">
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Dashboard</h2>
-    <div class="content">
-      <div class ="nav">
-        <a href='/'>Home Page</a>
-          <a href='/jobs'>Dashboard</a>
-          <a href='/logout'>Log Out</a>
-      </div>
-
+    <h1>Dashboard</h1>
       <% @jobs.each do |job| %>
         <p>Title: <a href="/jobs/<%= job.slug %>"><%= job.title %></a></p>
         <p>Company: <%= job.company %></p>
@@ -18,8 +10,10 @@
           <p>Application Status: Not Applied</p>
         <% end %>
         <p>Notes: <%= job.note %></p>
+        <form method="POST" action="/jobs/<%=job.slug%>/delete">
+          <input type="submit" value="delete">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+        </form>
         <hr><br>
       <% end %>
-    </div>
-  </div>
 </div>

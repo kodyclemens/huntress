@@ -44,4 +44,12 @@ class JobsController < ApplicationController
     user.jobs << Job.create(params)
     redirect '/jobs'
   end
+
+  delete '/jobs/:slug/delete' do
+    @job = Job.find_by_slug(params[:slug])
+    if @job.user_id == session[:id]
+      @job.destroy
+      redirect '/jobs'
+    end
+  end
 end
