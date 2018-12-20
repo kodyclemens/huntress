@@ -1,0 +1,3 @@
+class JobScraper
+
+end
