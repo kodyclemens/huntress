@@ -1,6 +1,6 @@
 # Sinatra/Heroku Template
 
-This branch is a clean Sinatra application, generated using Corneal, that is setup to be published to Heroku. SQLite will be the DB used for development and PostgreSQL will be used for production.
+This branch is a clean Sinatra application, generated using Corneal, that is pre-configured to be published to Heroku. SQLite will be the DB used for development and PostgreSQL will be used for production.
 
 *If you want to generate a new Sinatra application using Corneal and configure it yourself to be deployed on Heroku, follow [Dakota's guide](https://github.com/DakotaLMartinez/sinatra-heroku-demo)*.
 
