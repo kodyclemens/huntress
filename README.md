@@ -2,6 +2,8 @@
 
 This branch is a clean Sinatra application, generated using Corneal, that is setup to be published to Heroku. SQLite will be the DB used for development and PostgreSQL will be used for production.
 
+*If you want to generate a Sinatra application using Corneal and configure it to be deployed on Heroku, follow [Dakota's guide](https://github.com/DakotaLMartinez/sinatra-heroku-demo)*.
+
 ## Requirements
 
 * Local development environment installed with Git setup - [Guide here](http://help.learn.co/technical-support/local-environment/mac-osx-manual-environment-set-up)
