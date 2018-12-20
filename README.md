@@ -6,7 +6,7 @@ This branch is a clean Sinatra application, generated using Corneal, that is set
 
 ## Requirements
 
-* Local development environment installed with Git setup - [Guide here](http://help.learn.co/technical-support/local-environment/mac-osx-manual-environment-set-up)
+* **Mac OS X** local development environment installed with Git setup - [Guide here](http://help.learn.co/technical-support/local-environment/mac-osx-manual-environment-set-up)
 * Recommend the latest version of Ruby (2.5.3 at time of this writing)
 * Heroku requires at least Ruby 2.3.5 at the time of this writing
 
