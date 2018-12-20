@@ -9,7 +9,7 @@
       </div>
 
       <% @jobs.each do |job| %>
-        <p>Title: <%= job.title %></p>
+        <p>Title: <a href="/jobs/<%= job.slug %>"><%= job.title %></a></p>
         <p>Company: <%= job.company %></p>
         <p>Location: <%= job.location %></p>
         <% if job.applied == true%>

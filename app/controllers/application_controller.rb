@@ -13,6 +13,13 @@ class ApplicationController < Sinatra::Base
     session[:id] != nil
   end
 
+  def current_user
+    if logged_in?
+      user = User.find(session[:id])
+      user
+    end
+  end
+
   get '/' do
     @user_logged_in = logged_in?
     erb :welcome
