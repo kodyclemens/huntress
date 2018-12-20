@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <h2><%= @job.title %></h2>
+    <div class="content">
+      <div class ="nav">
+        <a href='/'>Home Page</a>
+          <a href='/jobs'>Dashboard</a>
+          <a href='/logout'>Log Out</a>
+      </div>
+
+        <p>Title: <%= @job.title %></p>
+        <p>Company: <%= @job.company %></p>
+        <p>Location: <%= @job.location %></p>
+        <% if @job.applied == true%>
+          <p>Application Status: Applied</p>
+        <% else %>
+          <p>Application Status: Not Applied</p>
+        <% end %>
+        <p>Notes: <%= @job.note %></p>
+        <hr><br>
+    </div>
+  </div>
+</div>

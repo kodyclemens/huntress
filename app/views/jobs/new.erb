@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Create New Job</h2>
+    <div class="content">
+      <form method="POST" action="/jobs/new">
+        Title: <input type="string" name="title"><br>
+        Company: <input type="string" name="company"><br>
+        Location: <input type="string" name="location"><br>
+        Description: <input type="string" name="description"><br>
+        Notes: <input type="string" name="note"><br>
+        Already applied?
+        <select name="applied" size="1">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+        <br>
+        <input type="submit" value="Create">
+      </form>
+    </div>
+  </div>
+</div>
