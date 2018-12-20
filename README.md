@@ -6,10 +6,6 @@ Huntress is a job application tracking system written in Ruby that uses the Sina
 
 Start using the application by registering an account at https://huntress-sinatra.herokuapp.com
 
-## Running the CLI
-
-In your terminal, navigate to the project's base directory. Run the command `ruby bin/run` in your terminal.
-
 ## Built With
 
 * [Ruby](https://www.ruby-lang.org/en/)
