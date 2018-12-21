@@ -1,5 +1,10 @@
-<div class="container">
-    <h1>Dashboard</h1>
+<div class="container-fluid">
+  <h1 class="text-center">Dashboard</h1>
+  <nav class="nav">
+    <a class="nav-link active" href="/jobs">Active</a>
+    <a class="nav-link" href="#">Archive</a>
+    <a class="nav-link" href="/jobs/new">Add New Job</a>
+    </nav>
       <% @jobs.each do |job| %>
         <p>Title: <a href="/jobs/<%= job.slug %>"><%= job.title %></a></p>
         <p>Company: <%= job.company %></p>
@@ -10,7 +15,9 @@
           <p>Application Status: Not Applied</p>
         <% end %>
         <p>Notes: <%= job.note %></p>
+
         <form method="POST" action="/jobs/<%=job.slug%>/delete">
+          <a href="/jobs/<%=job.slug%>"><input class="btn btn-info" value="edit"></a>
           <input type="submit" value="delete" class="btn btn-warning">
           <input id="hidden" type="hidden" name="_method" value="delete">
         </form>

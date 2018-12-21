@@ -10,4 +10,33 @@
         <% end %>
         <p>Notes: <%= @job.note %></p>
         <hr><br>
+  <form method="POST" action="/jobs/<%=@job.slug%>/edit">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="string" class="form-control" id="title" placeholder="Software Engineer" name="job[]title">
+    </div>
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="string" class="form-control" id="company" placeholder="Flatiron" name="job[]company">
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="string" class="form-control" id="location" placeholder="New York, NY" name="job[]location">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" placeholder="Job details go here" name="job[]description">
+    </div>
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <input type="text" class="form-control" id="notes" placeholder="Notes go here" name="job[]note">
+    </div>
+    <div class="radio">
+      <label>Already applied?</label><br>
+      <label><input type="radio" name="job[]applied" checked>Yes</label>          
+      <label><input type="radio" name="job[]applied" checked>No</label>          
+    </div>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="submit" value="Update" class="btn btn-success">
+  </form>
 </div>
