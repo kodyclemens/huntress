@@ -14,7 +14,6 @@ gem 'foreman'
 gem 'dotenv'
 gem 'sinatra-flash'
 gem 'nokogiri'
-gem 'open-uri'
 
 group :development do
   gem 'sqlite3'
