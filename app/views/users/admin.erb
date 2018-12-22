@@ -1,1 +1,24 @@
-Hello Admin
+<strong><%= "User Accounts: #{@users.count}"%></strong>
+<br>
+<strong><%= "Jobs Tracked: #{@jobs.count}"%></strong>
+<br>
+<% @users.each do |user| %>
+<hr>
+  Username: <%= "#{user.username} (id: #{user.id})"%>
+  <br>
+  Email: <%= user.email%>
+  <br>
+  Role: <%= user.role%>
+  <br>
+  Jobs being tracked: <%= user.jobs.count %>
+  <br>
+  <form method="POST" action="/users/<%= user.id %>/update">
+    <div class="radio">
+      <label>Already applied?</label><br>
+      <label><input type="radio" name="user[]role" value="user" checked>User</label>          
+      <label><input type="radio" name="user[]role" value="admin">Admin</label>          
+    </div>
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="submit" value="Update" class="btn btn-success">
+  </form>
+<% end %>

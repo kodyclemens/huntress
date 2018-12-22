@@ -19,7 +19,14 @@ class UsersController < ApplicationController
 
   get '/admin' do
     if logged_in?
-      erb :'/users/admin'
+      user = User.find(session[:id])
+      if user.role == "admin"
+        @users = User.all
+        @jobs = Job.all
+        erb :'/users/admin'
+      else
+        redirect '/'
+      end
     else
       redirect '/'
     end
@@ -40,5 +47,11 @@ class UsersController < ApplicationController
     else
       redirect '/login'
     end
+  end
+
+  patch '/users/:id/update' do
+    id = params[:id].to_i
+    User.update(id, role: params[:user][0][:role])
+    redirect '/admin'
   end
 end
