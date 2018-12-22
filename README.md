@@ -57,6 +57,8 @@ Recommend viewing [Heroku Getting Started guide](https://devcenter.heroku.com/ar
 
 If everything went smoothly, you should be greeted by a fresh Sinatra application with the Corneal front-end style on Heroku. If not, you can use `heroku logs --tail` to see what went wrong.
 
+See [Dakota's guide](https://github.com/DakotaLMartinez/sinatra-heroku-demo#configuring-for-authentication) on setting up a secret session for authentication.
+
 ### More Resources
 
 [Dakota Martinez's Repo Guide](https://github.com/DakotaLMartinez/sinatra-heroku-demo)
