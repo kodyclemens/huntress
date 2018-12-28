@@ -1,0 +1,3 @@
+- Only allow edits for note section of a job posting.
+- Clean up creating a job from scraping. Validate user input.
+- UI improvements
