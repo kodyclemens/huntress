@@ -1,9 +1,34 @@
-<div class="container">
-  <header><img src="images/huntress.jpg" class="img-responsive main-image"></header>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Welcome to Huntress</h1>
+      <p class="lead">The free job application tracking system.</p>
+    </div>
+  </div>
 
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Huntress Index Page</h2>
-    <div class="sidebar">
+  <ul class="list-unstyled">
+  <li class="media">
+    <img src="..." class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">Easy to use</h5>
+      We do not have bloated features, only the necessities to easily track and organize different jobs. You can focus on your job search without having to deal with a complex system and UI.
+    </div>
+  </li>
+  <li class="media my-4">
+    <img src="..." class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">Import from popular job sites</h5>
+      Import a job directly from Indeed (more job websites to come) by pasting in the URL and hitting a button. We take care of the rest.
+    </div>
+  </li>
+  <li class="media">
+    <img src="..." class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">Free</h5>
+      Track as many jobs as you like for free.
+    </div>
+  </li>
+</ul>
+<div class="sidebar">
       <h3>Environment</h3>
       <ul>
         <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
@@ -11,6 +36,4 @@
         <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
         <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
       </ul>
-    </div>
-  </div>
 </div>
