@@ -23,9 +23,20 @@
     </div>
     <div class="radio">
       <label>Already applied?</label><br>
-      <label><input type="radio" name="applied" checked>Yes</label>          
-      <label><input type="radio" name="applied" checked>No</label>          
+      <label><input type="radio" name="applied" value="true">Yes</label>          
+      <label><input type="radio" name="applied" value="false" checked>No</label>          
     </div>
     <input type="submit" value="Create" class="btn btn-success">
+  </form>
+  <br>
+  <h2>Create from URL</h2>
+  <form method="POST" action="/jobs/new/scraped">
+    <input type="text" class="form-control" id="url" placeholder="https://www.indeed.com/viewjob?jk=ee878aaea906145f" name="url">
+    <div class="radio">
+      <label>Already applied?</label><br>
+      <label><input type="radio" name="applied" value="true">Yes</label>          
+      <label><input type="radio" name="applied" value="false" checked>No</label>          
+    </div>
+    <input type="submit" value="Import" class="btn btn-success">
   </form>
 </div>
