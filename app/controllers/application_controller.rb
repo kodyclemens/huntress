@@ -21,7 +21,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    # binding.pry
     @logged_in = logged_in?
-    erb :welcome
+    if @logged_in
+      redirect '/jobs'
+    else
+      erb :welcome
+    end
   end
 end
