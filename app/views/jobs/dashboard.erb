@@ -1,26 +1,23 @@
-<div class="container-fluid">
-  <h1 class="text-center">Dashboard</h1>
-  <nav class="nav">
-    <a class="nav-link active" href="/jobs">Active</a>
-    <a class="nav-link" href="#">Archive</a>
-    <a class="nav-link" href="/jobs/new">Add New Job</a>
-    </nav>
+  <h1 class="text-center">Dashboard <a href="/jobs/new"><i class="fas fa-plus"></i></a></h1>
+  <hr>
       <% @jobs.each do |job| %>
-        <p>Title: <a href="/jobs/<%= job.slug %>"><%= job.title %></a></p>
-        <p>Company: <%= job.company %></p>
-        <p>Location: <%= job.location %></p>
-        <% if job.applied == true%>
-          <p>Application Status: Applied</p>
-        <% else %>
-          <p>Application Status: Not Applied</p>
-        <% end %>
-        <p>Notes: <%= job.note %></p>
-
-        <form method="POST" action="/jobs/<%=job.slug%>/delete">
-          <a href="/jobs/<%=job.slug%>"><input class="btn btn-info" value="edit"></a>
-          <input type="submit" value="delete" class="btn btn-warning">
-          <input id="hidden" type="hidden" name="_method" value="delete">
-        </form>
-        <hr><br>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+              <% if job.applied == true%>
+                <span class="badge badge-success">Applied</span>
+              <% else %>
+                <span class="badge badge-warning">Not Applied</span>
+              <% end %>
+              <h4><%= job.title %> at <%= job.company %> (<%= job.location %>)</h4>
+              <p><%= job.note %></p>
+              <form method="POST" action="/jobs/<%=job.slug%>/delete">
+                <a href="/jobs/<%=job.slug%>"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button></a>
+                <button type="submit" class="btn btn-sm btn-outline-danger" value="delete"><i class="far fa-trash-alt"></i></button>
+                <input id="hidden" type="hidden" name="_method" value="delete">
+              </form>
+              <hr>
+            </div>
+          </div>
+        </div>
       <% end %>
-</div>

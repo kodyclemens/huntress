@@ -3,7 +3,8 @@ class Job < ActiveRecord::Base
 
   def slug
     # Append the job ID to the end so jobs with the same title never conflict
-    title.downcase.gsub(" ", "-") + "-#{id}"
+    x = title.downcase.gsub("/", "-")
+    x = x.downcase.gsub(" ", "-") + "-#{id}"
   end
 
   def self.find_by_slug(slug)

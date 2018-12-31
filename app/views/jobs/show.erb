@@ -1,44 +1,50 @@
-<div class="container">
-
-    <h2><%= @job.title %></h2>
-        <p>Company: <%= @job.company %></p>
-        <p>Location: <%= @job.location %></p>
-        <p>Description: <%=@job.description %></p>
-        <% if @job.applied == true%>
-          <p>Application Status: Applied</p>
-        <% else %>
-          <p>Application Status: Not Applied</p>
-        <% end %>
-        <p>Notes: <%= @job.note %></p>
-        <hr><br>
-        <h2>Update Job</h2>
+<h1 class="text-center">Update</h2>
   <form method="POST" action="/jobs/<%=@job.slug%>/edit">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="string" class="form-control" id="title" placeholder="<%= @job.title %>" name="job[]title">
+    <div class="input-group input-group-sm">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Notes</span>
+      </div>
+      <textarea class="form-control" aria-label="textarea" name="note" rows="20" autofocus><%=@job.note%></textarea>
     </div>
-    <div class="form-group">
-      <label for="company">Company</label>
-      <input type="string" class="form-control" id="company" placeholder="<%= @job.company %>" name="job[]company">
-    </div>
-    <div class="form-group">
-      <label for="location">Location</label>
-      <input type="string" class="form-control" id="location" placeholder="<%= @job.location %>" name="job[]location">
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" placeholder="<%= @job.description %>" name="job[]description">
-    </div>
-    <div class="form-group">
-      <label for="notes">Notes</label>
-      <input type="text" class="form-control" id="notes" placeholder="<%= @job.note %>" name="job[]note">
-    </div>
-    <div class="radio">
-      <label>Already applied?</label><br>
-      <label><input type="radio" name="job[]applied">Yes</label>          
-      <label><input type="radio" name="job[]applied">No</label>          
-    </div>
+    <span class="border rounded">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline1" class="custom-control-input" name="applied" value="true">
+        <label class="custom-control-label" for="customRadioInline1">I have applied.</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="customRadioInline2" class="custom-control-input" name="applied" value="false">
+        <label class="custom-control-label" for="customRadioInline2">I have not applied.</label>
+      </div>
+    </span>
+    <br>
     <input id="hidden" type="hidden" name="_method" value="patch">
     <input type="submit" value="Update" class="btn btn-success">
   </form>
-</div>
+  <hr>
+  <h1 class="text-center">
+    <%= @job.title %>
+  </h1>
+  <h3>Company:</h3>
+  <p>
+    <%= @job.company %>
+  </p>
+  <h3>Location:</h3>
+  <p>
+    <%= @job.location %>
+  </p>
+  <h3>Description:</h3>
+  <p>
+    <%=@job.description %>
+  </p>
+  <% if @job.applied == true%>
+  <h3>Application Status:</h3>
+  <p>Applied</p>
+  <% else %>
+  <h3>Application Status:</h3>
+  <p>Not Applied</p>
+  <% end %>
+  <h3>Notes:</h3>
+  <p>
+    <%= @job.note %>
+  </p>
+  <hr><br>

@@ -67,11 +67,14 @@ class JobsController < ApplicationController
 
   patch '/jobs/:slug/edit' do
     @job = Job.find_by_slug(params[:slug])
+    slug = @job.slug
     params.each do |field|
-      redirect "/jobs/#{@job.slug}" if field.empty?
+      redirect "/jobs/#{slug}" if field.empty? || params[:applied].nil?
     end
     params[:applied] = params[:applied] == 'true'
-    @job.update(params[:job].first)
+    @job.note = params[:note]
+    @job.applied = params[:applied]
+    @job.save
     redirect "/jobs"
   end
 end
