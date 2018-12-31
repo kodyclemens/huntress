@@ -1,4 +1,5 @@
-<h1 class="text-center">Update</h2>
+<h4><%=@job.title%> at <%=@job.company%></h4>
+<h4><%=@job.location%></h4>
   <form method="POST" action="/jobs/<%=@job.slug%>/edit">
     <div class="input-group input-group-sm">
       <div class="input-group-prepend">
@@ -20,31 +21,3 @@
     <input id="hidden" type="hidden" name="_method" value="patch">
     <input type="submit" value="Update" class="btn btn-success">
   </form>
-  <hr>
-  <h1 class="text-center">
-    <%= @job.title %>
-  </h1>
-  <h3>Company:</h3>
-  <p>
-    <%= @job.company %>
-  </p>
-  <h3>Location:</h3>
-  <p>
-    <%= @job.location %>
-  </p>
-  <h3>Description:</h3>
-  <p>
-    <%=@job.description %>
-  </p>
-  <% if @job.applied == true%>
-  <h3>Application Status:</h3>
-  <p>Applied</p>
-  <% else %>
-  <h3>Application Status:</h3>
-  <p>Not Applied</p>
-  <% end %>
-  <h3>Notes:</h3>
-  <p>
-    <%= @job.note %>
-  </p>
-  <hr><br>

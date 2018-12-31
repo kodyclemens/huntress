@@ -23,11 +23,11 @@ class JobsController < ApplicationController
     end
   end
 
-  get '/jobs/:slug' do
+  get '/jobs/:slug/edit' do
     if logged_in?
       @logged_in = true
       @job = Job.find_by_slug(params[:slug])
-      erb :'/jobs/show'
+      erb :'/jobs/edit'
     else
       @logged_in = false
       redirect '/'
