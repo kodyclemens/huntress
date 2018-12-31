@@ -12,7 +12,8 @@
               <h4><%= job.title %> at <%= job.company %> (<%= job.location %>)</h4>
               <p><%= job.note %></p>
               <form method="POST" action="/jobs/<%=job.slug%>/delete">
-                <a href="/jobs/<%=job.slug%>/edit"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button></a>
+                <a href="/jobs/<%=job.slug%>"><button type="button" class="btn btn-sm btn-outline-primary"><i class="far fa-eye"></i></button></a>
+                <a href="/jobs/<%=job.slug%>/edit"><button type="button" class="btn btn-sm btn-outline-warning"><i class="fas fa-edit"></i></button></a>
                 <button type="submit" class="btn btn-sm btn-outline-danger" value="delete"><i class="far fa-trash-alt"></i></button>
                 <input id="hidden" type="hidden" name="_method" value="delete">
               </form>

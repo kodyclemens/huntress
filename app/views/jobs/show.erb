@@ -1,0 +1,16 @@
+<% if @job.applied %>
+  <h1 class="text-center"><%=@job.title%> <span class="badge badge-success">Applied</span></h1>
+<% else %>
+  <h1 class="text-center"><%=@job.title%> <span class="badge badge-warning">Not Applied</span></h1>
+<% end %>
+<hr>
+<h2>Company: <%=@job.company%></h2>
+<hr>
+<h2>Location: <%=@job.location%></h2>
+<hr>
+<h2>Description:</h2>
+  <p><%=@job.description%></p>
+<hr>
+<h2>Notes:</h2>
+  <p><%=@job.note%></p>
+<hr>

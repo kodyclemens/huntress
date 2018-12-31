@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181221222616) do
+ActiveRecord::Schema.define(version: 20181231200505) do
 
   create_table "jobs", force: :cascade do |t|
     t.string  "title"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20181221222616) do
     t.string  "description", default: ""
     t.boolean "applied",     default: false
     t.integer "user_id"
-    t.text    "note",        default: ""
+    t.text    "note",        default: "Edit to add your own note."
   end
 
   create_table "users", force: :cascade do |t|
