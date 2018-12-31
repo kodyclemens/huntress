@@ -9,11 +9,11 @@
     </div>
     <span class="border rounded">
       <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline1" class="custom-control-input" name="applied" value="true">
+        <input type="radio" id="customRadioInline1" class="custom-control-input" name="applied" value="true" <% if @job.applied %><%="checked"%><%end%>>
         <label class="custom-control-label" for="customRadioInline1">I have applied.</label>
       </div>
       <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="customRadioInline2" class="custom-control-input" name="applied" value="false">
+        <input type="radio" id="customRadioInline2" class="custom-control-input" name="applied" value="false" <% if !@job.applied %><%="checked"%><%end%>>
         <label class="custom-control-label" for="customRadioInline2">I have not applied.</label>
       </div>
     </span>
