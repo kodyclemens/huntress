@@ -59,13 +59,17 @@ class JobsController < ApplicationController
   post '/jobs/new/scraped' do
     # This needs cleaned up.
     # Merge into jobs/new? Need to validate user input to accept only proper job URL
-    user = current_user
-    scraper = JobScraper.new
-    scraped_job = scraper.ScrapeIndeed(params[:url])
-    scraped_job.user_id = user.id
-    scraped_job.applied = params[:applied] == 'true'
-    scraped_job.save
-    redirect '/jobs'
+    if Job.validate_indeed_url(params[:url])
+      user = current_user
+      scraper = JobScraper.new
+      scraped_job = scraper.ScrapeIndeed(params[:url])
+      scraped_job.user_id = user.id
+      scraped_job.applied = params[:applied] == 'true'
+      scraped_job.save
+      redirect '/jobs'
+    else
+      redirect '/jobs/new'
+    end
   end
 
   delete '/jobs/:slug/delete' do

@@ -10,4 +10,8 @@ class Job < ActiveRecord::Base
   def self.find_by_slug(slug)
     Job.all.find{|job| job.slug == slug}
   end
+
+  def self.validate_indeed_url(url)
+    url.include?("indeed")
+  end
 end
