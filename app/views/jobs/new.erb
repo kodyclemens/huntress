@@ -1,35 +1,5 @@
 <div class="container">
-<h2>Add Job to Dashboard</h2>
-  <form method="POST" action="/jobs/new">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input type="string" class="form-control" id="title" placeholder="Software Engineer" name="title">
-    </div>
-    <div class="form-group">
-      <label for="company">Company</label>
-      <input type="string" class="form-control" id="company" placeholder="Flatiron" name="company">
-    </div>
-    <div class="form-group">
-      <label for="location">Location</label>
-      <input type="string" class="form-control" id="location" placeholder="New York, NY" name="location">
-    </div>
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input type="text" class="form-control" id="description" placeholder="Job details go here" name="description">
-    </div>
-    <div class="form-group">
-      <label for="notes">Notes</label>
-      <input type="text" class="form-control" id="notes" value="Notes go here" name="note">
-    </div>
-    <div class="radio">
-      <label>Already applied?</label><br>
-      <label><input type="radio" name="applied" value="true">Yes</label>          
-      <label><input type="radio" name="applied" value="false" checked>No</label>          
-    </div>
-    <input type="submit" value="Create" class="btn btn-success">
-  </form>
-  <br>
-  <h2>Create from URL</h2>
+  <h2>Create from Indeed URL</h2>
   <form method="POST" action="/jobs/new/scraped">
     <input type="text" class="form-control" id="url" placeholder="https://www.indeed.com/viewjob?jk=ee878aaea906145f" name="url">
     <div class="radio">
@@ -39,4 +9,34 @@
     </div>
     <input type="submit" value="Import" class="btn btn-success">
   </form>
+  <hr>
+  <h2>Add Custom Job</h2>
+    <form method="POST" action="/jobs/new">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="string" class="form-control" id="title" placeholder="Software Engineer" name="title">
+      </div>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input type="string" class="form-control" id="company" placeholder="Flatiron" name="company">
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="string" class="form-control" id="location" placeholder="New York, NY" name="location">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" placeholder="Job details go here" name="description">
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <input type="text" class="form-control" id="notes" value="Notes go here" name="note">
+      </div>
+      <div class="radio">
+        <label>Already applied?</label><br>
+        <label><input type="radio" name="applied" value="true">Yes</label>          
+        <label><input type="radio" name="applied" value="false" checked>No</label>          
+      </div>
+      <input type="submit" value="Create" class="btn btn-success">
+    </form>
 </div>

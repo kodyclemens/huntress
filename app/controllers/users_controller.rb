@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      flash[:blah]
       redirect '/'
     else
       erb :'/users/login'
@@ -30,6 +29,27 @@ class UsersController < ApplicationController
     else
       redirect '/'
     end
+  end
+
+  get '/users/:user/edit' do
+    if logged_in?
+      @user = User.find(session[:id])
+      if params[:user] == @user.username
+        erb :'/users/edit'
+      else
+        redirect "/users/#{@user.username}"
+      end
+    else
+      redirect '/'
+    end
+  end
+
+  patch '/users/:user/edit' do
+    @user = User.find_by(username: params[:user])
+    @user.email = params[:email]
+    @user.password = params[:password]
+    @user.save
+    redirect "/users/#{@user.username}/edit"
   end
 
   post '/signup' do
