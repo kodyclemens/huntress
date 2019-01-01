@@ -1,13 +1,19 @@
-<div class="container">
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Register</h2>
-    <div class="content">
-      <form method="POST" action="/signup">
-        Username: <input type="string" name="username"><br>
-        Email: <input type="string" name="email"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Register">
-      </form>
-    </div>
-  </div>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+<div class="container text-center">
+  <form method="POST" action="/signup" style="margin: 20%; padding: 5%;" class="border border-secondary rounded shadow-lg">.
+  <div class="container-fluid text-right" style="margin-top: -13%; margin-right: -10%;">
+  <a style="color: black;" href="#" data-toggle="tooltip" title="We'll never share your email with anyone else. Passwords are stored encrypted with a salt. Use a unique password!"><i class="fas fa-info"></i></a></div>
+  <h4 style="margin-bottom: 5%;">Create an Account</h4>
+      <i class="far fa-user" style="margin-right: 2px;"></i><input type="username" name="username" size="30" placeholder="Username" autofocus>
+      <br>
+      <i class="far fa-envelope" style="margin-right: 2px;"></i><input type="email" name="email" size="30" placeholder="Email" style="margin-top: 5px;">
+      <br>
+      <i class="fas fa-key" style="margin-right: 2px;"></i><input type="password" name="password" size="30" placeholder="Password" style="margin-top: 5px;">
+      <br>
+    <input type="submit" value="Register" class="btn btn-success btn-md" style="margin-top: 3%;">
+  </form>
 </div>
