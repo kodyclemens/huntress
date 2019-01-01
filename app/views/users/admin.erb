@@ -6,27 +6,37 @@
   <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
 </ul>
 <hr>
-<strong><%= "User Accounts: #{@users.count}"%></strong>
-<br>
-<strong><%= "Jobs Tracked: #{@jobs.count}"%></strong>
-<br>
-<% @users.each do |user| %>
-<hr>
-  Username: <%= "#{user.username} (id: #{user.id})"%>
+<div class="text-center" style="margin-bottom: 1%;">
+  <strong><%= "Total User Accounts: #{@users.count}"%></strong>
   <br>
-  Email: <%= user.email%>
+  <strong><%= "Total Jobs Tracked: #{@jobs.count}"%></strong>
   <br>
-  Role: <%= user.role%>
-  <br>
-  Jobs being tracked: <%= user.jobs.count %>
-  <br>
-  <form method="POST" action="/users/<%= user.id %>/update">
-    <div class="radio">
-      <label>Already applied?</label><br>
-      <label><input type="radio" name="user[]role" value="user" checked>User</label>          
-      <label><input type="radio" name="user[]role" value="admin">Admin</label>          
-    </div>
-    <input id="hidden" type="hidden" name="_method" value="patch">
-    <input type="submit" value="Update" class="btn btn-success">
-  </form>
-<% end %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-6 border rounded shadow-sm">
+        Username: <strong><%= "#{user.username} (id: #{user.id})"%></strong>
+        <br>
+        Email: <%= user.email%>
+        <br>
+        Role: <%= user.role%>
+        <br>
+        Jobs being tracked: <%= user.jobs.count %>
+        <br>
+        <form method="POST" action="/users/<%= user.id %>/update">
+          <div class="radio">
+            <label><input type="radio" name="user[]role" value="user" <% if user.role == "user"%><%="checked"%><% end %>>User</label>
+            <br>
+            <label><input type="radio" name="user[]role" value="admin" <% if user.role == "admin"%><%="checked"%><% end %>>Admin</label>          
+          </div>
+          <input type="text" name="password" placeholder="New User Password">
+          <br>
+          <input id="hidden" type="hidden" name="_method" value="patch">
+          <input type="submit" value="Update" class="btn btn-success" style="margin-top: 1%; margin-bottom: 1%;">
+        </form>
+      </div>
+    <% end %>
+  </div>
+</div>
