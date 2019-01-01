@@ -63,10 +63,13 @@ class JobsController < ApplicationController
       user = current_user
       scraper = JobScraper.new
       scraped_job = scraper.ScrapeIndeed(params[:url])
-      scraped_job.user_id = user.id
-      scraped_job.applied = params[:applied] == 'true'
-      scraped_job.save
-      redirect '/jobs'
+      if !scraped_job.nil?
+        scraped_job.user_id = user.id
+        scraped_job.applied = params[:applied] == 'true'
+        scraped_job.save
+        redirect '/jobs'
+      end
+      redirect '/jobs/new'
     else
       redirect '/jobs/new'
     end
