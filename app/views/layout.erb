@@ -13,30 +13,29 @@
   <% @user = User.find(session[:id]) unless @logged_in == false %>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Huntress</a>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if @logged_in == false %>
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Log In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signup">Register</a>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <a class="nav-link" href="/jobs">Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/jobs/new">New Job</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Register</a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="/jobs">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/jobs/new">New Job</a>
+          </li>
         <% end %>
-          </ul>
+        </ul>
+        <ul class="navbar-nav ml-auto">
         <% if @logged_in == true %>
-          <ul class="navbar-nav ml-auto">
             <% if @user.role == "admin"%>
               <li class="nav-item">
                 <a class="nav-link" href="/admin">Admin</a>
@@ -48,8 +47,11 @@
             <li class="nav-item">
               <a class="nav-link" href="/logout">Logout</a>
             </li>
-          </ul>
         <% end %>
+            <li class="nav-item">
+              <a class="nav-link" href="/support" style="color: white;">Support</a>
+            </li>
+        </ul>
       </div>
     </nav>
     <div class="container-fluid">

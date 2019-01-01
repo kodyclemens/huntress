@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/support' do
+    erb :'/users/support'
+  end
+
   get '/admin' do
     if logged_in?
       user = User.find(session[:id])

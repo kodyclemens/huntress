@@ -1,14 +1,13 @@
-<h1>Welcome, <%=@user.username.capitalize%></h1>
-<form method="POST" action="/users/<%=@user.username%>/edit">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" value=<%=@user.email%>>
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <input id="hidden" type="hidden" name="_method" value="patch">
-  <input type="submit" value="Update" class="btn btn-success">
-</form>
+<div class="container text-center">
+  <form method="POST" action="/users/<%=@user.username%>/edit" style="margin: 5%; padding: 2%;" class="border border-secondary rounded shadow-sm">
+  <h4>Welcome, <%=@user.username.capitalize%></h4>
+  <hr>
+  <h4 style="margin-bottom: 2%;">Update Your Account</h4>
+      <i class="far fa-envelope" style="margin-right: 2px;"></i><input type="email" name="email" size="30" value=<%=@user.email%>>
+      <br>
+      <i class="fas fa-key" style="margin-right: 2px;"></i><input type="password" name="password" size="30" placeholder="Password" style="margin-top: 5px;">
+      <br>
+    <input type="submit" value="Update" class="btn btn-success btn-md" style="margin-top: 3%;">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+  </form>
+</div>
