@@ -1,4 +1,4 @@
-![Heroku](https://www.huntress.app/)
+![Heroku](https://www.huntress.app)
 # Huntress
 
 Huntress is a job application tracking system written in Ruby that uses the Sinatra web application framework.
