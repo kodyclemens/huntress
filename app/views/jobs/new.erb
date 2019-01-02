@@ -1,7 +1,8 @@
 <div class="container">
   <h2>Create from Indeed URL <a href="https://www.indeed.com/" target="_blank"><i class="fas fa-link fa-sm"></i></a></h2>
+  <a href="#" target="_blank"><small id="emailHelp" class="form-text text-muted" style="margin-top: -1%;">Where do I get this link?</small></a>
   <form method="POST" action="/jobs/new/scraped">
-    <input type="text" class="form-control" id="url" placeholder='https://www.indeed.com/viewjob?jk=ee878aaea906145f'>
+    <input type="text" class="form-control" name="url" placeholder='https://www.indeed.com/viewjob?jk=ee878aaea906145f'>
     <div class="radio">
       <label>Already applied?</label><br>
       <label><input type="radio" name="applied" value="true">Yes</label>          
