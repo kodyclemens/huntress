@@ -76,6 +76,7 @@ class UsersController < ApplicationController
 
     if user != nil && user.authenticate(params[:password])
       session[:id] = user.id
+      flash[:notice] = "Welcome, #{user.username.capitalize}"
       redirect '/jobs'
     else
       flash[:error] = 'Invalid credentials provided.'

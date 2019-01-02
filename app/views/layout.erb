@@ -58,7 +58,7 @@
     </nav>
     <div class="container-fluid">
       <% if flash[:error] %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error-alert">
           <strong><%= flash[:error] %></strong>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -66,12 +66,13 @@
         </div>
       <% end %>
       <% if flash[:notice] %>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="notice-alert">
           <strong><%= flash[:notice] %></strong>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
+        <script>
+          $("#notice-alert").fadeTo(2000, 500).slideUp(500, function(){
+          $("#notice-alert").slideUp(500);});
+        </script>
       <% end %>
       <%= yield %>
     </div>
