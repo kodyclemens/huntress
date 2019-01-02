@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  use Rack::Flash
+
   get '/signup' do
     erb :'/users/signup'
   end
@@ -59,6 +62,11 @@ class UsersController < ApplicationController
   post '/signup' do
     user = User.create(params)
     session[:id] = user.id
+    if session[:id].nil?
+      flash[:error] = "Username and/or email already in use!"
+    else
+      flash[:notice] = "User account created!"
+    end
     redirect '/'
   end
 

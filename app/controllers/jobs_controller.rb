@@ -1,4 +1,7 @@
 class JobsController < ApplicationController
+
+  use Rack::Flash
+
   get '/jobs' do
     if logged_in?
       @logged_in = true
@@ -27,7 +30,11 @@ class JobsController < ApplicationController
     if logged_in?
       @logged_in = true
       @job = Job.find_by_slug(params[:slug])
-      erb :'/jobs/show'
+      if @job.belongs_to_user?(session[:id])
+        erb :'/jobs/show'
+      else
+        redirect '/jobs'
+      end
     else
       @logged_in = false
       redirect '/'
@@ -35,10 +42,15 @@ class JobsController < ApplicationController
   end
 
   get '/jobs/:slug/edit' do
+    # Ensure only owning user can see a job
     if logged_in?
       @logged_in = true
       @job = Job.find_by_slug(params[:slug])
-      erb :'/jobs/edit'
+      if @job.belongs_to_user?(session[:id])
+        erb :'/jobs/edit'
+      else
+        redirect '/jobs'
+      end
     else
       @logged_in = false
       redirect '/'

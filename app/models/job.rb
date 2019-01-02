@@ -14,4 +14,8 @@ class Job < ActiveRecord::Base
   def self.validate_indeed_url(url)
     url.include?("https://www.indeed.com/")
   end
+
+  def belongs_to_user?(session_id)
+    self.user_id == session_id
+  end
 end
