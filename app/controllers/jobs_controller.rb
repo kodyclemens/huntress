@@ -33,6 +33,7 @@ class JobsController < ApplicationController
       if @job.belongs_to_user?(session[:id])
         erb :'/jobs/show'
       else
+        flash[:error] = "Unknown job URL."
         redirect '/jobs'
       end
     else
@@ -49,6 +50,7 @@ class JobsController < ApplicationController
       if @job.belongs_to_user?(session[:id])
         erb :'/jobs/edit'
       else
+        flash[:error] = "Unknown job URL."
         redirect '/jobs'
       end
     else
@@ -60,7 +62,10 @@ class JobsController < ApplicationController
   post '/jobs/new' do
     user = current_user
     params.each do |field|
-      redirect '/jobs/new' if field[1].empty?
+      if field[1].empty?
+        flash[:error] = "All fields must be filled out."
+        redirect '/jobs/new' 
+      end
     end
 
     params[:applied] = params[:applied] == 'true'
@@ -79,10 +84,12 @@ class JobsController < ApplicationController
         scraped_job.user_id = user.id
         scraped_job.applied = params[:applied] == 'true'
         scraped_job.save
-        redirect '/jobs'
+        flash[:notice] = "#{scraped_job[:title]} was added to your dashboard."
+        redirect '/jobs/new'
       end
       redirect '/jobs/new'
     else
+      flash[:error] = "Invalid URL provided."
       redirect '/jobs/new'
     end
   end
@@ -98,13 +105,19 @@ class JobsController < ApplicationController
   patch '/jobs/:slug/edit' do
     @job = Job.find_by_slug(params[:slug])
     slug = @job.slug
+
     params.each do |field|
-      redirect "/jobs/#{slug}" if field.empty? || params[:applied].nil?
+      if params[:applied].nil?
+        flash[:error] = "Please select application status."
+        redirect "/jobs/#{slug}"
+      end
     end
+
     params[:applied] = params[:applied] == 'true'
     @job.note = params[:note]
     @job.applied = params[:applied]
     @job.save
+    flash[:notice] = "Successfully updated #{@job.title}!"
     redirect "/jobs"
   end
 end

@@ -56,6 +56,7 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     @user.save
+    flash[:notice] = "Account updated successfully!"
     redirect "/users/#{@user.username}/edit"
   end
 
@@ -77,6 +78,7 @@ class UsersController < ApplicationController
       session[:id] = user.id
       redirect '/jobs'
     else
+      flash[:error] = 'Invalid credentials provided.'
       redirect '/login'
     end
   end
@@ -88,6 +90,7 @@ class UsersController < ApplicationController
     else
       User.update(id, role: params[:user][0][:role], password: params[:password])
     end
+    flash[:notice] = "Account updated successfully!"
     redirect '/admin'
   end
 end
