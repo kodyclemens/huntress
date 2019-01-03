@@ -1,4 +1,0 @@
-##Force SSL 
-
-#Heroku way
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
