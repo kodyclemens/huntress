@@ -18,14 +18,16 @@
   <style>
   </style>
   <body>
-
-  <% @logged_in = logged_in?%>
-  <% @user = User.find(session[:id]) unless @logged_in == false %>
+    <% @logged_in = logged_in?%>
+    <% @user = User.find(session[:id]) unless @logged_in == false %>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <a class="navbar-brand" href="/">Huntress</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <% if @logged_in == false %>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <% if @logged_in == false %>
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
@@ -43,36 +45,36 @@
             <a class="nav-link" href="/jobs/new">New Job</a>
           </li>
         <% end %>
-        </ul>
-        <ul class="navbar-nav ml-auto">
+      </ul>
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <% if @logged_in == true %>
-            <% if @user.role == "admin"%>
-              <li class="nav-item">
-                <a class="nav-link" href="/admin">Admin</a>
-              </li>
-            <%end%>
+          <% if @user.role == "admin"%>
             <li class="nav-item">
-              <a class="nav-link" href="/users/<%=@user.username%>/edit">Settings</a>
+              <a class="nav-link" href="/admin">Admin</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Logout</a>
-            </li>
+          <%end%>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/<%=@user.username%>/edit">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
         <% end %>
-            <li class="nav-item">
-              <a class="nav-link" href="/support" style="color: white;">Support</a>
-            </li>
-        </ul>
+        <li class="nav-item">
+          <a class="nav-link" href="/support" style="color: white;">Support</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <% if flash[:error] %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error-alert">
+        <strong><%= flash[:error] %></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </nav>
-    <div class="container-fluid">
-      <% if flash[:error] %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="error-alert">
-          <strong><%= flash[:error] %></strong>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
+    <% end %>
       <% if flash[:notice] %>
         <div class="alert alert-success alert-dismissible fade show" role="alert" id="notice-alert">
           <strong><%= flash[:notice] %></strong>
@@ -83,13 +85,13 @@
         </script>
       <% end %>
       <%= yield %>
-    </div>
+  </div>
     <%if @logged_in == false %>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
         <a style="color: white;" href="https://github.com/kodyclemens/huntress" target="_blank"><i class="fab fa-github fa-1x"></i></a>
         <a style="color: #01B2E5; padding-left: 10px;" href="https://flatironschool.com/" target="_blank"><i class="fas fa-graduation-cap fa-1x"></i></a>
         <a style="color: white; padding-left: 10px;" href="mailto:kody@kodyclemens.com"><i class="far fa-envelope fa-1x"></i></a>
       </nav>
-    <% end %>
-  </body>
+  <% end %>
+</body>
 </html>
