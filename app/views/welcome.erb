@@ -2,33 +2,54 @@
     <div class="container">
       <h1 class="display-4">Welcome to <strong>Huntress</strong></h1>
       <p class="lead">The free job application tracking system.</p>
-      <a href="/signup" class="btn btn-success btn-lg justify-content-center" role="button" aria-pressed="true">Join for Free</a>
+      <a href="/signup" class="btn btn-success btn-lg justify-content-center" role="button" aria-pressed="false" style="background-color: #01B2E5; border-color: white;">Join for Free</a>
     </div>
   </div>
-  <ul class="list-unstyled">
-  <li class="media">
-    <i class="fas fa-baby" style="padding: 3px 5px 0px 0px;"></i>
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">Easy to use</h5>
-      We do not have bloated features, only the necessities to enable easy tracking and organization of multiple jobs. You can focus on your job search without having to deal with a complex system and interface.
-    </div>
-  </li>
-  <li class="media my-4">
-    <i class="fas fa-fire" style="padding: 3px 5px 0px 0px;"></i>
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">Import from popular job sites</h5>
-      Import a job directly from Indeed by pasting in the URL and hitting a button. We take care of the rest. Importing from other popular job boards will be added in the future.
-    </div>
-  </li>
-  <li class="media">
-    <i class="far fa-money-bill-alt" style="padding: 4px 5px 0px 0px;"></i>
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">No cost</h5>
-      Track as many jobs as you like for free. Donations welcomed.
-    </div>
-  </li>
-</ul>
-<hr>
-<div class="text-center">
-<img src="https://i.imgur.com/k4eVnBx.png" class="thumbnail shadow-lg p-3 mb-5 bg-white rounded" alt="Responsive image" style="width:75%;">
+<div class="row">
+  <div class="col-sm-6">
+    <ul class="list-unstyled">
+      <li class="media">
+        <i class="fas fa-baby" style="padding: 3px 5px 0px 0px;"></i>
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">Easy to use</h5>
+          We do not have bloated features, only the necessities to enable easy tracking and organization of multiple jobs. You can focus on your job search without having to deal with a complex system and interface.
+        </div>
+      </li>
+      <li class="media my-4">
+        <i class="fas fa-fire" style="padding: 3px 5px 0px 0px;"></i>
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">Import from popular job sites</h5>
+          Import a job directly from Indeed by pasting in the URL and hitting a button. We take care of the rest. Importing from other popular job boards will be added in the future.
+        </div>
+      </li>
+      <li class="media">
+        <i class="far fa-money-bill-alt" style="padding: 4px 5px 0px 0px;"></i>
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">No cost</h5>
+          Track as many jobs as you like for free. Donations welcomed.
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <h3>
+      Recently Added
+      <small class="text-muted">Latest 3</small>
+    </h3>
+    <div class="list-group">
+      <% @jobs.each do |job| %>
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%=job.title%></h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1"><%=job.company%></p>
+          <small><%=job.location%></small>
+        </div>
+      <% end %>
+  </div>
 </div>
+
+  <div class="text-center">
+    <img src="https://i.imgur.com/k4eVnBx.png" class="thumbnail shadow-lg p-3 mb-5 bg-white rounded" alt="Responsive image" style="width:75%;">
+  </div>

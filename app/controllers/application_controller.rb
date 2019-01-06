@@ -27,6 +27,7 @@ class ApplicationController < Sinatra::Base
     if @logged_in
       redirect '/jobs'
     else
+      @jobs = Job.order(id: :desc).limit(3)
       erb :welcome
     end
   end

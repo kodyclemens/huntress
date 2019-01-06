@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181231200505) do
+ActiveRecord::Schema.define(version: 20190106205847) do
 
   create_table "jobs", force: :cascade do |t|
-    t.string  "title"
-    t.string  "company",     default: ""
-    t.string  "location",    default: ""
-    t.string  "description", default: ""
-    t.boolean "applied",     default: false
-    t.integer "user_id"
-    t.text    "note",        default: "Edit to add your own note."
+    t.string   "title"
+    t.string   "company",     default: ""
+    t.string   "location",    default: ""
+    t.string   "description", default: ""
+    t.boolean  "applied",     default: false
+    t.integer  "user_id"
+    t.text     "note",        default: "Edit to add your own note."
+    t.datetime "created_on"
   end
 
   create_table "users", force: :cascade do |t|
