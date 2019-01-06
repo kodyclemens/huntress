@@ -70,7 +70,8 @@ class JobsController < ApplicationController
 
     params[:applied] = params[:applied] == 'true'
     user.jobs << Job.create(params)
-    redirect '/jobs'
+    flash[:notice] = "#{params[:title]} was added to your dashboard."
+    redirect '/jobs/new'
   end
 
   post '/jobs/new/scraped' do
