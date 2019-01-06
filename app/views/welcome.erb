@@ -33,7 +33,10 @@
   </div>
   <% if @jobs.count >= 3 %>
     <div class="col-sm-6">
-      <h3>Recently added</h3>
+      <h3>
+        Spotlight
+        <small class="text-muted">Jobs recently added by other users</small>
+      </h3>
       <div class="list-group">
         <% @jobs.each do |job| %>
           <div class="list-group-item list-group-item-action">
