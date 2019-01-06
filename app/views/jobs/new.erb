@@ -1,3 +1,13 @@
+<script>
+  function spin(button_name) {
+    if (button_name == 'import') {
+      document.getElementById('import').style.display = 'inline-block';
+    }
+    else {
+      document.getElementById('create').style.display = 'inline-block';
+    }
+  }
+</script>
 <div class="container">
   <h2>Create from Indeed URL <a href="https://www.indeed.com/" target="_blank"><i class="fas fa-link fa-sm"></i></a></h2>
   <a href="https://i.imgur.com/Ovvad6H.gifv" target="_blank"><small id="emailHelp" class="form-text text-muted" style="margin-top: -1%;">Where do I get this link?</small></a>
@@ -8,7 +18,11 @@
       <label><input type="radio" name="applied" value="true">Yes</label>          
       <label><input type="radio" name="applied" value="false" checked>No</label>          
     </div>
-    <input type="submit" value="Import" class="btn btn-success">
+    <button class="btn btn-success" type="submit" value="Import" class="btn btn-success" onclick="spin('import');">
+      Import
+      <span id="import" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+      <span id="import" class="sr-only" style="display: none;">Loading...</span>
+    </button>
   </form>
   <hr>
   <h2>Add Custom Job</h2>
@@ -38,6 +52,10 @@
         <label><input type="radio" name="applied" value="true">Yes</label>          
         <label><input type="radio" name="applied" value="false" checked>No</label>          
       </div>
-      <input type="submit" value="Create" class="btn btn-success">
+      <button class="btn btn-success" type="submit" value="Import" class="btn btn-success" onclick="spin('create');">
+        Create
+        <span id="create" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+        <span id="create" class="sr-only" style="display: none;">Loading...</span>
+      </button>
     </form>
 </div>
