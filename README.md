@@ -1,7 +1,7 @@
 ![Heroku](https://heroku-badge.herokuapp.com/?app=huntress-sinatra&root=/)
 # Huntress
 
-Huntress is a job application tracking system written in Ruby that uses the Sinatra web application framework.
+Huntress is a job application tracking system written in Ruby. Huntress uses the Sinatra web application framework for the backend and the Bootstrap framework for the responsive front-end.
 
 ## Live Site
 
@@ -11,8 +11,9 @@ Start using the application by registering an account at https://www.huntress.ap
 
 * [Ruby](https://www.ruby-lang.org/en/)
 * [Sinatra](http://sinatrarb.com/)
+* [Bootstrap](https://getbootstrap.com/)
 * [PostgreSQL](https://www.postgresql.org/)
-* [Heroku](https://heroku.com/)
+* [Heroku](https://heroku.com/) - Application hosting
 
 ## Contributing
 
