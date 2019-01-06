@@ -12,7 +12,7 @@ class Job < ActiveRecord::Base
   end
 
   def self.validate_indeed_url(url)
-    url.include?("https://www.indeed.com/")
+    url.include?("https://www.indeed.")
   end
 
   def belongs_to_user?(session_id)

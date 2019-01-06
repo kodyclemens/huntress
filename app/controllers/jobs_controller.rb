@@ -80,12 +80,15 @@ class JobsController < ApplicationController
       user = current_user
       scraper = JobScraper.new
       scraped_job = scraper.ScrapeIndeed(params[:url])
+
       if !scraped_job.nil?
         scraped_job.user_id = user.id
         scraped_job.applied = params[:applied] == 'true'
         scraped_job.save
         flash[:notice] = "#{scraped_job[:title]} was added to your dashboard."
         redirect '/jobs/new'
+      else
+        flash[:error] = "Invalid URL provided."
       end
       redirect '/jobs/new'
     else
