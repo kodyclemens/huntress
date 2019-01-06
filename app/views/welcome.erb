@@ -31,23 +31,25 @@
       </li>
     </ul>
   </div>
-  <div class="col-sm-6">
-    <h3>
-      Recently Added
-      <small class="text-muted">Latest 3</small>
-    </h3>
-    <div class="list-group">
-      <% @jobs.each do |job| %>
-        <div class="list-group-item list-group-item-action">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1"><%=job.title%></h5>
-            <small>3 days ago</small>
+  <% if @jobs.count >= 3 %>
+    <div class="col-sm-6">
+      <h3>Recently added</h3>
+      <div class="list-group">
+        <% @jobs.each do |job| %>
+          <div class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"><%=job.title%></h5>
+              <% if job.created_on != nil%>
+                <small><%= job.created_on.strftime("%m/%d/%y %I:%M:%S %p")%></small>
+              <% end %>
+            </div>
+            <p class="mb-1"><%=job.company%></p>
+            <small><%=job.location%></small>
           </div>
-          <p class="mb-1"><%=job.company%></p>
-          <small><%=job.location%></small>
-        </div>
-      <% end %>
-  </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
   <div class="text-center">
