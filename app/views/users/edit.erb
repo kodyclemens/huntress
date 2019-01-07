@@ -3,9 +3,9 @@
   <h4>Welcome, <%=@user.username.capitalize%></h4>
   <hr>
   <h4 style="margin-bottom: 2%;">Update Your Account</h4>
-      <i class="far fa-envelope" style="margin-right: 2px;"></i><input type="email" name="email" size="30" value=<%=@user.email%>>
+      <i class="far fa-envelope" style="margin-right: 2px;"></i><input type="email" name="email" size="30" value=<%=@user.email%> required>
       <br>
-      <i class="fas fa-key" style="margin-right: 2px;"></i><input type="password" name="password" size="30" placeholder="Password" style="margin-top: 5px;">
+      <i class="fas fa-key" style="margin-right: 2px;"></i><input type="password" name="password" size="30" placeholder="Password" style="margin-top: 5px;" required>
       <br>
     <input type="submit" value="Update" class="btn btn-success btn-md" style="margin-top: 3%;">
     <input id="hidden" type="hidden" name="_method" value="patch">

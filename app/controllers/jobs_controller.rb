@@ -1,5 +1,4 @@
 class JobsController < ApplicationController
-
   use Rack::Flash
 
   get '/jobs' do
@@ -17,8 +16,6 @@ class JobsController < ApplicationController
   get '/jobs/new' do
     if logged_in?
       @logged_in = true
-      user = current_user
-      @jobs = user.jobs.all
       erb :'/jobs/new'
     else
       @logged_in = false
@@ -64,7 +61,7 @@ class JobsController < ApplicationController
     params.each do |field|
       if field[1].empty?
         flash[:error] = "All fields must be filled out."
-        redirect '/jobs/new' 
+        redirect '/jobs/new'
       end
     end
 
@@ -75,8 +72,6 @@ class JobsController < ApplicationController
   end
 
   post '/jobs/new/scraped' do
-    # This needs cleaned up.
-    # Merge into jobs/new? Need to validate user input to accept only proper job URL
     if Job.validate_indeed_url(params[:url])
       user = current_user
       scraper = JobScraper.new
@@ -91,32 +86,20 @@ class JobsController < ApplicationController
       else
         flash[:error] = "Invalid URL provided."
       end
-      redirect '/jobs/new'
     else
       flash[:error] = "Invalid URL provided."
-      redirect '/jobs/new'
     end
+    redirect '/jobs/new'
   end
 
   delete '/jobs/:slug/delete' do
     @job = Job.find_by_slug(params[:slug])
-    if @job.user_id == session[:id]
-      @job.destroy
-      redirect '/jobs'
-    end
+    @job.destroy if @job.belongs_to_user?(session[:id])
+    redirect '/jobs'
   end
 
   patch '/jobs/:slug/edit' do
     @job = Job.find_by_slug(params[:slug])
-    slug = @job.slug
-
-    params.each do |field|
-      if params[:applied].nil?
-        flash[:error] = "Please select application status."
-        redirect "/jobs/#{slug}"
-      end
-    end
-
     params[:applied] = params[:applied] == 'true'
     @job.note = params[:note]
     @job.applied = params[:applied]

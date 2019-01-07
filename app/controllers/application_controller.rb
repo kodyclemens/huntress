@@ -22,7 +22,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    # binding.pry
     @logged_in = logged_in?
     if @logged_in
       redirect '/jobs'

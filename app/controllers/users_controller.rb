@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   use Rack::Flash
 
   get '/signup' do
