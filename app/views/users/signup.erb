@@ -8,11 +8,13 @@ $(function () {
   <div class="container-fluid text-right" style="margin-top: -13%; margin-right: -10%;">
   <a style="color: black;" href="#" data-toggle="tooltip" title="We'll never share your email with anyone else. Passwords are stored encrypted with a salt. Use a unique password!"><i class="fas fa-info"></i></a></div>
   <h4 style="margin-bottom: 5%;">Create an Account</h4>
-      <i class="far fa-user" style="margin-right: 2px;"></i><input type="username" name="username" size="30" placeholder="Username" style="max-width: 100%;" autofocus>
+      <i class="far fa-user" style="margin-right: 2px;"></i><input type="username" name="username" size="30" placeholder="Username" style="max-width: 100%;" autofocus required>
       <br>
-      <i class="far fa-envelope" style="margin-right: 2px;"></i><input type="email" name="email" placeholder="Email" size="30" style="margin-top: 5px; max-width: 100%;">
+      <i class="far fa-envelope" style="margin-right: 2px;"></i><input type="email" name="email" placeholder="Email" size="30" style="margin-top: 5px; max-width: 100%;" required>
       <br>
-      <i class="fas fa-key" style="margin-right: 2px;"></i><input type="password" name="password" placeholder="Password" size="30" style="margin-top: 5px; max-width: 100%;">
+      <i class="fas fa-key" style="margin-right: 2px;"></i><input type="password" name="password" placeholder="Password" size="30" style="margin-top: 5px; max-width: 100%;" required>
+      <br>
+      <i class="fas fa-key" style="margin-right: 2px;"></i><input type="password" name="password_confirmation" placeholder="Confirm Password" size="30" style="margin-top: 5px; max-width: 100%;" required>
       <br>
     <input type="submit" value="Register" class="btn btn-success btn-md" style="margin-top: 3%;">
   </form>

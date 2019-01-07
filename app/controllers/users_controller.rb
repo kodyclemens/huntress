@@ -63,10 +63,14 @@ class UsersController < ApplicationController
   post '/signup' do
     user = User.create(params)
     session[:id] = user.id
-    if session[:id].nil?
-      flash[:error] = "Username and/or email already in use!"
-    else
+    if !session[:id].nil?
       flash[:notice] = "User account created!"
+    elsif params[:password] != params[:password_confirmation]
+      flash[:error] = "Passwords do not match!"
+      redirect '/signup'
+    else
+      flash[:error] = "Username and/or email already in use!"
+      redirect '/signup'
     end
     redirect '/'
   end
