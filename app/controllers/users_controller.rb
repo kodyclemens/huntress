@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   get '/signup' do
     erb :'/users/signup'
   end
-  
+
   get '/logout' do
     session.clear
     redirect '/'
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   get '/admin' do
     if logged_in?
       user = User.find(session[:id])
-      if user.role == "admin"
+      if user.role == 'admin'
         @users = User.all
         @jobs = Job.all
         erb :'/users/admin'
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     @user.save
-    flash[:notice] = "Account updated successfully!"
+    flash[:notice] = 'Account updated successfully!'
     redirect "/users/#{@user.username}/edit"
   end
 
@@ -63,12 +63,12 @@ class UsersController < ApplicationController
     user = User.create(params)
     session[:id] = user.id
     if !session[:id].nil?
-      flash[:notice] = "User account created!"
+      flash[:notice] = 'User account created!'
     elsif params[:password] != params[:password_confirmation]
-      flash[:error] = "Passwords do not match!"
+      flash[:error] = 'Passwords do not match!'
       redirect '/signup'
     else
-      flash[:error] = "Username and/or email already in use!"
+      flash[:error] = 'Username and/or email already in use!'
       redirect '/signup'
     end
     redirect '/'
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
   post '/login' do
     user = User.find_by(username: params[:username])
 
-    if user != nil && user.authenticate(params[:password])
+    if !user.nil? && user.authenticate(params[:password])
       session[:id] = user.id
       flash[:notice] = "Welcome, #{user.username.capitalize}"
       redirect '/jobs'
@@ -94,7 +94,7 @@ class UsersController < ApplicationController
     else
       User.update(id, role: params[:user][0][:role], password: params[:password])
     end
-    flash[:notice] = "Account updated successfully!"
+    flash[:notice] = 'Account updated successfully!'
     redirect '/admin'
   end
 end

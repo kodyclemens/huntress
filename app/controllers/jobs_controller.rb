@@ -30,7 +30,7 @@ class JobsController < ApplicationController
       if @job.belongs_to_user?(session[:id])
         erb :'/jobs/show'
       else
-        flash[:error] = "Unknown job URL."
+        flash[:error] = 'Unknown job URL.'
         redirect '/jobs'
       end
     else
@@ -47,7 +47,7 @@ class JobsController < ApplicationController
       if @job.belongs_to_user?(session[:id])
         erb :'/jobs/edit'
       else
-        flash[:error] = "Unknown job URL."
+        flash[:error] = 'Unknown job URL.'
         redirect '/jobs'
       end
     else
@@ -60,7 +60,7 @@ class JobsController < ApplicationController
     user = current_user
     params.each do |field|
       if field[1].empty?
-        flash[:error] = "All fields must be filled out."
+        flash[:error] = 'All fields must be filled out.'
         redirect '/jobs/new'
       end
     end
@@ -84,10 +84,10 @@ class JobsController < ApplicationController
         flash[:notice] = "#{scraped_job[:title]} was added to your dashboard."
         redirect '/jobs/new'
       else
-        flash[:error] = "Invalid URL provided."
+        flash[:error] = 'Invalid URL provided.'
       end
     else
-      flash[:error] = "Invalid URL provided."
+      flash[:error] = 'Invalid URL provided.'
     end
     redirect '/jobs/new'
   end
@@ -105,6 +105,6 @@ class JobsController < ApplicationController
     @job.applied = params[:applied]
     @job.save
     flash[:notice] = "Successfully updated #{@job.title}!"
-    redirect "/jobs"
+    redirect '/jobs'
   end
 end

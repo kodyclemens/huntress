@@ -3,8 +3,8 @@ class Job < ActiveRecord::Base
 
   def slug
     # Append the job ID to the end so jobs with the same title never conflict
-    x = title.downcase.gsub("/", "-")
-    x = x.downcase.gsub(" ", "-") + "-#{id}"
+    x = title.downcase.tr('/', '-')
+    x.downcase.tr(' ', '-') + "-#{id}"
   end
 
   def self.find_by_slug(slug)
@@ -16,6 +16,6 @@ class Job < ActiveRecord::Base
   end
 
   def belongs_to_user?(session_id)
-    self.user_id == session_id
+    user_id == session_id
   end
 end

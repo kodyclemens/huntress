@@ -161,5 +161,6 @@ build-iPhoneSimulator/
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+.rubocop.yml
 
 # End of https://www.gitignore.io/api/ruby,macos,rails,database,visualstudiocode
