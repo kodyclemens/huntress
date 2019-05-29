@@ -20,6 +20,7 @@ group :development do
   gem 'shotgun'
   gem 'sqlite3'
   gem 'tux'
+  gem 'rb-readline'
 end
 
 group :test do

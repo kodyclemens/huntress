@@ -89,6 +89,7 @@ class UsersController < ApplicationController
 
   patch '/users/:id/update' do
     id = params[:id].to_i
+
     if params[:password].empty?
       User.update(id, role: params[:user][0][:role])
     else
